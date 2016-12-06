@@ -1,0 +1,14 @@
+<div class="list-group">
+    <a class="list-group-item" ng-repeat="singlePokemon in $ctrl.info | filter:myQuery | orderBy:myOrderProperty"
+       href="#/pokemons/{{singlePokemon.objectId }}">
+        <h4 class="list-group-item-heading">
+            <span class="badge">{{singlePokemon.objectId }}</span>
+            {{singlePokemon.name | uppercase }}
+        </h4>
+        <p class="list-group-item-text">
+            Вес:
+            {{singlePokemon.weight}}, рост:
+            {{singlePokemon.height}}
+        </p>
+    </a>
+</div>
