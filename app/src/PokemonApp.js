@@ -1,8 +1,12 @@
-var pokemonApp = angular.module('PokemonApp', ['ngRoute', 'ngResource']);
+var pokemonApp = angular.module('PokemonApp', ['ngRoute', 'ngResource', 'ngMaterial']);
 
 angular.
-module('PokemonApp').
-config(['$routeProvider','$httpProvider','$resourceProvider',
+module('PokemonApp')
+    .controller('mainController',['$scope', function($scope){
+        $scope.currentNavItem = '#/';
+        $scope.mdNavHref = true;
+    }])
+    .config(['$routeProvider','$httpProvider','$resourceProvider',
     function config($routeProvider, $httpProvider, $resourceProvider) {
 
         $routeProvider.
@@ -11,8 +15,9 @@ config(['$routeProvider','$httpProvider','$resourceProvider',
             controller: 'PokemonListCtrl'
         }).
         when('/pokemons/:pokemonId', {
-            templateUrl: 'src/PokemonDetail/PokemonDetail.html',
-            controller: 'PokemonDetailCtrl'
+                template: '<pokemon-details></pokemon-details>'
+            //templateUrl: 'src/PokemonDetail/PokemonDetail.html',
+            //controller: 'PokemonDetailCtrl'
         }).
         when('/create', {
             templateUrl: 'src/CreatePokemon/CreatePokemon.html',

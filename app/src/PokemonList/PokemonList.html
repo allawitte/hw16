@@ -1,9 +1,9 @@
 <style>
 
-   .preload {
+    .preload {
         background: transparent url("loading-animation.gif") no-repeat scroll center center;
-       display: block;
-       margin: 20px auto;
+        display: block;
+        margin: 20px auto;
     }
 </style>
 <div class="panel panel-default">
@@ -24,22 +24,22 @@
 <img src="preload.gif" alt="" class="preload" ng-if="dataLoading"/>
 <div class="row">
     <div class="col-md-6">
-        <pokemon-list></pokemon-list>
+        <my-list info="pokemons"></my-list>
     </div>
     <div class="col-md-6">
-        <div class="list-group">
-            <div class="list-group-item" ng-repeat="berrie in berries">
-                <h4 class="list-group-item-heading">
-                    <span class="badge">{{berrie.objectId }}</span>
-                    {{berrie.name | uppercase }}
-                </h4>
-                <p class="list-group-item-text">
-                    Вес:
-                    {{berrie.option}}
-
-                </p>
-            </div>
-        </div>
+        <md-content>
+            <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="berrie in berries">
+                    <div class="list-group-item">
+                        <md-subheader md-colors="{color: 'teal'}">{{berrie.objectId }}</md-subheader>
+                        <md-subheader class="md-no-sticky">{{berrie.name | uppercase }}</md-subheader>
+                        <div class="md-list-item-text" layout="column">
+                            <p>Свойства:{{berrie.option}}</p>
+                        </div>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
     </div>
 </div>
 <div class="panel panel-default" ng-show="myQuery">

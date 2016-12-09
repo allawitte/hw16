@@ -4,9 +4,9 @@ pokemonApp.controller('PokemonListCtrl', function ($scope, PokemonsService, Berr
     var page = 10;
     var offset = 1;
     $scope.dataLoading = true;
+    console.log('Ctrl');
 
     PokemonsService.getPokemons(page, offset).then(function (pokemonsData) {
-        console.log('call');
         $scope.pokemons = $scope.pokemons.concat(pokemonsData.data.data);
     });
 
@@ -14,7 +14,6 @@ pokemonApp.controller('PokemonListCtrl', function ($scope, PokemonsService, Berr
 
     Entry.query(function (res) {
         $scope.berries = res;
-        console.log(res);
         $scope.dataLoading = false;
     });
 
@@ -22,9 +21,9 @@ pokemonApp.controller('PokemonListCtrl', function ($scope, PokemonsService, Berr
     $scope.myOrderProperty = 'weight';
 
 })
-    .component('pokemonList', {
+    .component('myList', {
         bindings: {
             info: '=info'
         },
-        templateUrl: 'PokemonListComponent.html'
+        templateUrl: 'src/PokemonList/PokemonListComponent.html'
     });

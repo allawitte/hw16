@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html ng-app="PokemonApp">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Фреймворк AngularJS / Нетология</title>
-        <script src="../node_modules/angular/angular.js"></script>
-        <script src="../node_modules/angular-route/angular-route.js"></script>
-        <script src="../node_modules/angular-resource/angular-resource.js"></script>
-        <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Фреймворк AngularJS / Нетология</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../node_modules/angular-resource/angular-resource.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
 
-    <body>
+<body ng-controller="mainController">
+<md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-href="#/" name="#/">Главная</md-nav-item>
+        <md-nav-item md-nav-href="#/pokemons" name="#/pokemons">Покемоны</md-nav-item>
+        <md-nav-item md-nav-href="#/create" name="#/create">Добавить нового</md-nav-item>
+    </md-nav-bar>
+</md-content>
+<ng-view></ng-view>
 
-        <div class="container">
+</div>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
+<script src="src/PokemonApp.js"></script>
+<script src="src/CreatePokemon/CreatePokemonCtrl.js"></script>
+<script src="src/EditPokemon/EditPokemonCtrl.js"></script>
+<script src="src/PokemonList/PokemonListCtrl.js"></script>
+<script src="src/PokemonDetail/PokemonDetailCtrl.js"></script>
+<script src="src/PokemonsService/PokemonsService.js"></script>
+<script src="src/BerriesService/BerriesService.js"></script>
 
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-default" href="#/">Главная</a>
-                        <a class="btn btn-default" href="#/pokemons">Покемоны</a>
-                        <a class="btn btn-default" href="#/create">Добавить нового</a>
-                    </div>
-
-                </div>
-            </div>
-
-            <ng-view></ng-view>
-
-        </div>
-
-        <script src="src/PokemonApp.js"></script>
-        <script src="src/CreatePokemon/CreatePokemonCtrl.js"></script>
-        <script src="src/EditPokemon/EditPokemonCtrl.js"></script>
-        <script src="src/PokemonList/PokemonListCtrl.js"></script>
-        <script src="src/PokemonDetail/PokemonDetailCtrl.js"></script>
-        <script src="src/PokemonsService/PokemonsService.js"></script>
-        <script src="src/BerriesService/BerriesService.js"></script>
-
-    </body>
+</body>
 
 </html>
